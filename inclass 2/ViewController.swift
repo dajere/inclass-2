@@ -9,12 +9,43 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var counterDisplay: UILabel!
+    @IBOutlet weak var stepperInfo: UIStepper!
+   @IBOutlet weak var sliderInfo: UISlider!
+    @IBOutlet weak var imageInfo: UIImageView!
+    @IBOutlet weak var segmentInfo: UISegmentedControl!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    @IBAction func stepperAction(_ sender: Any) {
+        counterDisplay.text = String(stepperInfo.value)
+        stepperInfo.value = stepperInfo.value
+    }
+    
+    @IBAction func sliderAction(_ sender: Any) {
+        counterDisplay.text = String(sliderInfo.value)
+        sliderInfo.value = Float(stepperInfo.value)
+
+        changeColor()
+    }
+    func changeColor(){
+        if sliderInfo.value > 50 {
+            counterDisplay.textColor = UIColor.red
+        }else{
+        counterDisplay.textColor = UIColor.black
+   
+    }
+    }
+   @IBAction func segmentChange(_ sender: Any) {
+    if segmentInfo.selectedSegmentIndex == 0{
+        imageInfo.isHidden = true
+    }else{
+        imageInfo.isHidden = false
+    
+        func viewDidLoad() {
+            }
+            super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
-}
-
+    }
+    
